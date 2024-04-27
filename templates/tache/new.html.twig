@@ -1,0 +1,25 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Nouvelle Tache{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+    <h1>Créer une Tache</h1>
+
+    {{ include('tache/_form.html.twig') }}
+
+    <a href="{{ path('app_tache_index') }}">Retour</a>
+      </div>
+                                </div>
+                            </div>
+                        </div>
+{% endblock %}

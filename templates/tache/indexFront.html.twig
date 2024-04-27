@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos{% endblock %}
+
+{% block content %}
+<div class="container">
+        <h1 class="display-4 mb-4">Taches</h1>
+
+        <div class="row">
+            {% for tache in taches %}
+                <div class="col-md-6 mb-4">
+                    <div class="card" style="width:300px;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tache.nom }}</h5>
+                          
+                            <ul class="list-unstyled">
+                               
+                                <li><strong>Ajouté le:</strong> {{ tache.date ? tache.date|date('Y-m-d') : '' }}</li>
+                                 <li><strong>Priorité:</strong>{{ tache.priorite? tache.priorite:'' }}
+                                 <li><strong>Statut:</strong>{{ tache.statut ? tache.statut : '' }}
+                               
+                               
+                            </ul>
+                            
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            {% else %}
+                <div class="col">
+                    <p class="lead">No records found</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        
+    </div>
+    {% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Projets{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="display-4 mb-4 text-center">Projets</h1>
+
+    <div class="row">
+        {% for projet in projets %}
+            <div class="col-md-4 mb-4">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ projet.nom }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li><strong>Début :</strong> {{ projet.date_debut ? projet.date_debut|date('Y-m-d') : '' }}</li>
+                            <li><strong>Fin :</strong> {{ projet.date_fin ? projet.date_fin|date('Y-m-d') : '' }}</li>
+                            <li><strong>Progression :</strong> 
+                                <span class="badge {% if projet.progression == 'Terminé' %}badge-progression-terminee{% elseif projet.progression == 'Faible' %}badge-progression-faible{% elseif projet.progression == 'Moyenne' %}badge-progression-moyenne{% else %}bg-info{% endif %}">
+                                    {{ projet.progression }}
+                                </span>
+                            </li>
+                            <li><strong>Priorité :</strong> {{ projet.priorite }}</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_projet_taches', {'id': projet.id_projet}) }}" class="btn btn-primary btn-sm btn-block">Voir les Tâches</a>
+                        <a href="{{ path('app_projet_details', {'id': projet.id_projet}) }}" class="btn btn-primary btn-sm btn-block">Détails</a>
+                    
+                       
+
+
+                        
+                   
+                     
+
+                       
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col">
+                <div class="alert alert-info" role="alert">
+                    Aucun enregistrement trouvé
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}

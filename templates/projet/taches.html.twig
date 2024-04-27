@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tâches du Projet {{ projet.nom }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4 mb-4 text-center">Tâches du Projet {{ projet.nom }}</h1>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tâches à faire</th>
+                        <th>Tâches en cours</th>
+                        <th>Tâches terminées</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {% for tache in projet.taches %}
+                                {% if tache.statut == 'A faire' %}
+                                    <div>{{ tache.nom }}</div>
+                                {% endif %}
+                            {% else %}
+                                <div>Aucune tâche à faire pour le moment</div>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for tache in projet.taches %}
+                                {% if tache.statut == 'En cours' %}
+                                    <div>{{ tache.nom }}</div>
+                                {% endif %}
+                            {% else %}
+                                <div>Aucune tâche en cours pour le moment</div>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for tache in projet.taches %}
+                                {% if tache.statut == 'Terminé' %}
+                                    <div>{{ tache.nom }}</div>
+                                {% endif %}
+                            {% else %}
+                                <div>Aucune tâche terminée pour le moment</div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

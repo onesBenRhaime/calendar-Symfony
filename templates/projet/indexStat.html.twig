@@ -1,0 +1,26 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Projet Index{% endblock %}
+
+{% block content %}
+<!-- ... (Votre code CSS et HTML) ... -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Bar chart
+  var ctx1 = document.getElementById('stat1').getContext('2d');
+  var labels1 = [];
+  var data1 = [];
+
+  {% for item in data %}
+    labels1.push('{{ item.nom }}');
+    data1.push({{ item.nbTaches }});
+  {% endfor %}
+
+  var chart1 = new Chart(ctx1, {
+    // ... (Votre code JavaScript pour le graphique bar) ...
+  });
+
+  // ... (Votre code JavaScript pour le graphique pie) ...
+</script>
+{% endblock %}

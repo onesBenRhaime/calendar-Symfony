@@ -1,0 +1,86 @@
+{% extends 'baseBack.html.twig' %}
+
+
+
+                        
+
+
+
+{% block title %}Projet index{% endblock %}
+
+{% block content %}
+
+   <br>
+   <br>
+   <br>
+   <br>
+ 
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Liste des Projets</h4>
+                
+                <div class="table-responsive">
+                
+                    <table class="table align-middle table-nowrap mb-0">
+                    
+                        <thead class="table-light">
+                            <tr>
+                            
+                                <th style="width: 20px;">
+                                
+                                   
+                                </th>
+                                <th class="align-middle">Nom du Projet</th>
+                                <th class="align-middle">Progression</th>
+                                <th class="align-middle">Date de Début</th>
+                                <th class="align-middle">Date de Fin</th>
+                                <th class="align-middle">Priorité</th>
+                                <th class="align-middle">Image</th>
+
+                                <th class="align-middle">Actions</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                        
+                            {% for projet in projets %}
+                            <tr>
+                                <td>
+                    
+                               
+                                </td>
+                                <td><a href="{{ path('app_projet_index',{'id':projet.id_projet}) }}">{{ projet.nom }}</a></td>
+                                <td>{{ projet.progression ? projet.progression }}</td>
+                                
+                                <td>{{ projet.date_debut ? projet.date_debut|date('Y-m-d') : '' }}</td>
+                                <td>{{ projet.date_fin ? projet.date_fin|date('Y-m-d') : '' }}</td>
+                               
+                                <td>{{ projet.priorite ? projet.priorite }}</td>
+                                <td>{{ projet.image? projet.image }}</td>
+                                <td>
+                                   
+                                    <a href="{{ path('app_projet_edit', {'id': projet.id_projet}) }}" class="btn btn-success">Modifier</a>
+                                    <a href="{{ path('app_projet_delete', {'id': projet.id_projet}) }}" class="btn btn-danger">Afficher</a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="7">Aucun enregistrement trouvé</td>
+                            </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end table-responsive -->
+                <a href="{{ path('app_projet_new') }}" class="btn btn-primary mt-3">Créer un Projet</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+{% endblock %}

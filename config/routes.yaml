@@ -1,0 +1,20 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+app_search_projet:
+    path: /search
+    controller: App\Controller\ProjetController::search
+    methods: [GET, POST]
+app_stat:
+    path: /projet/stats
+    controller: App\Controller\ProjetController::stat
+    methods: [GET]
+
+app_projet_taches:
+    path: /{id}/taches
+    controller: App\Controller\ProjetController::taches
+    methods: [GET]
+# config/routes.yaml
+app_projet_details:
+    path: /projet/{id}/details
+    controller: App\Controller\ProjetController::details

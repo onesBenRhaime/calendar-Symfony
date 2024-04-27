@@ -1,0 +1,22 @@
+# This file is the entry point to configure your own services.
+
+# Configuration des paramètres
+parameters:
+    images_directory: '%kernel.project_dir%/public/uploads/images'
+
+
+# Configuration des services
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+# config/services.yaml
+    # ...
+
+    App\EventSubscriber\CalendarSubscriber:
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'

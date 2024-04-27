@@ -1,0 +1,60 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+
+
+<div class="form-group">
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+         <span style="color:red;">{{ form_errors(form.nom)}}</span>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.date_debut) }}
+        {{ form_widget(form.date_debut, {'attr': {'class': 'form-control'}}) }}
+         <span style="color:red;">{{ form_errors(form.date_debut)}}</span>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.date_fin) }}
+        {{ form_widget(form.date_fin, {'attr': {'class': 'form-control'}}) }}
+    <span style="color:red;">{{ form_errors(form.date_fin)}}</span>
+    </div>
+ <div class="form-group">
+        {{ form_label(form.progression) }}
+        {{ form_widget(form.progression, {'attr': {'class': 'form-control'}}) }}
+    <span style="color:red;">{{ form_errors(form.progression)}}</span>
+    </div>
+     <div class="form-group">
+        {{ form_label(form.priorite) }}
+        {{ form_widget(form.priorite, {'attr': {'class': 'form-control'}}) }}
+    <span style="color:red;">{{ form_errors(form.priorite)}}</span>
+    </div>
+    <div class="form-group">
+
+     {{ form_row(form.image) }}
+      
+    <span style="color:red;">{{ form_errors(form.image)}}</span>
+    </div>
+
+
+   
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+</style>
+
+
